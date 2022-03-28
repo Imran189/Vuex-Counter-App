@@ -4,12 +4,15 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      count: 0
+      count: 10
     }
   },
   mutations: {
-    increment (state) {
-      state.count++
+    increment (state,payload) {
+      state.count = state.count + payload
+    },
+    decrement (state,payload) {
+      state.count = state.count - payload
     }
   }
 })
