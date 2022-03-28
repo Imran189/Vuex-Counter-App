@@ -5,10 +5,13 @@
         <button @click="decrement(value)">-</button>
         <input type="number" v-model="value"/>
         <button @click="increment(value)">+</button>
+        <div>
+            <button @click="addRandomNum" class="btn">Add by a random Number</button>
+        </div>
     </div>
 </template>
 <script>
-import { mapState, mapMutations } from "vuex"
+import { mapState, mapMutations,mapActions } from "vuex"
 export default {
     data() {
         return {
@@ -19,7 +22,8 @@ export default {
         ...mapState(["count"])
     },
     methods: {
-       ...mapMutations(["increment","decrement"])
+       ...mapMutations(["increment","decrement"]),
+       ...mapActions(["addRandomNum"])
     },
 }
 </script>
@@ -39,5 +43,11 @@ export default {
         padding: 0.4rem;
         margin: 0 0.5rem;
         text-align: center;
+    }
+    .btn{
+        border-radius: 0.5rem;
+        width: auto;
+        background-color:#52c4ba ;
+        margin-top: 0.3rem;
     }
 </style>
